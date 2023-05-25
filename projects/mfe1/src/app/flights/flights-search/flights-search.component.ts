@@ -8,5 +8,7 @@ import { AuthLibService } from 'auth-lib';
   templateUrl: './flights-search.component.html'
 })
 export class FlightsSearchComponent {
+  user = this.service.user;
 
+  constructor(private service: AuthLibService) {}
 }

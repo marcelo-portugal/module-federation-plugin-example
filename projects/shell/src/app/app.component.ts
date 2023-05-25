@@ -13,6 +13,5 @@ export class AppComponent {
     this.service.login('Max', null);
     console.debug('http', http);
   }
-
 }
 
