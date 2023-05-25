@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-const URL = 'http://localhost:3000/remoteEntry.js';
+const URL = 'http://localhost:4000/remoteEntry.js';
 
 export const APP_ROUTES: Routes = [
     {
@@ -14,15 +14,15 @@ export const APP_ROUTES: Routes = [
 
     // Your route here:
 
-    {
-      path: 'flights',
-      loadChildren: () => loadRemoteModule({
-          type: 'module',
-          remoteEntry: URL,
-          exposedModule: './Module'
-        })
-        .then(m => m.FlightsModule) 
-    },
+    // {
+    //   path: 'flights',
+    //   loadChildren: () => loadRemoteModule({
+    //       type: 'module',
+    //       remoteEntry: URL,
+    //       exposedModule: './Module'
+    //     })
+    //     .then(m => m.FlightsModule) 
+    // },
 
     {
       path: '**',
