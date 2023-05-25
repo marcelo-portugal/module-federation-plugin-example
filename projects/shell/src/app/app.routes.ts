@@ -14,19 +14,19 @@ export const APP_ROUTES: Routes = [
 
     // Your route here:
 
-    // {
-    //   path: 'flights',
-    //   loadChildren: () => loadRemoteModule({
-    //       type: 'module',
-    //       remoteEntry: URL,
-    //       exposedModule: './Module'
-    //     })
-    //     .then(m => m.FlightsModule) 
-    // },
     {
       path: 'flights',
-      loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule)
+      loadChildren: () => loadRemoteModule({
+          type: 'module',
+          remoteEntry: URL,
+          exposedModule: './Module'
+        })
+        .then(m => m.FlightsModule) 
     },
+    // {
+    //   path: 'flights',
+    //   loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule)
+    // },
 
     {
       path: '**',
