@@ -8,6 +8,7 @@ import {Component} from '@angular/core';
   templateUrl: './flights-search.component.html'
 })
 export class FlightsSearchComponent {
+  assetsUrl = __webpack_public_path__ || '../../../';
   user = 'John Doe';
   // user = this.service.user;
 
