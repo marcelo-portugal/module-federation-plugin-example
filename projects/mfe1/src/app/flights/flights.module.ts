@@ -1,20 +1,25 @@
-import { NgModule } from '@angular/core';
+import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { createCustomElement } from '@angular/elements';
+import { BrowserModule } from '@angular/platform-browser';
 import { FlightsSearchComponent } from './flights-search/flights-search.component';
-import { RouterModule } from '@angular/router';
-import { FLIGHTS_ROUTES } from './flights.routes';
-import { AuthLibModule } from 'auth-lib';
-import { SharedLibModule } from 'shared-lib';
 
 @NgModule({
   imports: [
+    BrowserModule,
     CommonModule,
-    AuthLibModule,
-    SharedLibModule,
-    RouterModule.forChild(FLIGHTS_ROUTES)
   ],
   declarations: [
     FlightsSearchComponent
-  ]
+  ],
+  bootstrap: []
 })
-export class FlightsModule { }
+export class FlightsModule implements DoBootstrap {
+  constructor(private injector: Injector) {}
+
+  ngDoBootstrap(): void {
+      const ce = createCustomElement(FlightsSearchComponent, {injector: this.injector});
+
+      customElements.define('flight-search', ce);
+  }
+}
