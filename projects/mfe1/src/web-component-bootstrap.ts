@@ -1,8 +1,11 @@
 import { FlightsModule } from "./app/flights/flights.module";
-import { environment } from "./environments/environment";
-import { bootstrap } from "@angular-architects/module-federation-tools";
+import { environment } from './environments/environment';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
 
-bootstrap(FlightsModule, {
-  production: environment.production,
-  appType: 'microfrontend'
-});
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(FlightsModule)
+  .catch(err => console.error(err));
