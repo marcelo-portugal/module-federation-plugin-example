@@ -1,4 +1,3 @@
-import { loadRemoteEntry, loadRemoteModule } from '@angular-architects/module-federation';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -15,28 +14,15 @@ export const APP_ROUTES: Routes = [
 
     // Your route here:
     {
-        path: 'flights',
-        component: WebComponentWrapper,
-        data: {
-            type: 'module',
-            remoteEntry: URL,
-            exposedModule: './web-components',
-            elementName: 'flight-search'
-        }
-      },
-    // {
-    //   path: 'flights',
-    //   loadChildren: () => loadRemoteModule({
-    //       type: 'module',
-    //       remoteEntry: URL,
-    //       exposedModule: './Module'
-    //     })
-    //     .then(m => m.FlightsModule) 
-    // },
-    // {
-    //   path: 'flights',
-    //   loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule)
-    // },
+      path: 'flights',
+      component: WebComponentWrapper,
+      data: {
+          type: 'module',
+          remoteEntry: URL,
+          exposedModule: './web-components',
+          elementName: 'flight-search'
+      }
+    },
 
     {
       path: '**',

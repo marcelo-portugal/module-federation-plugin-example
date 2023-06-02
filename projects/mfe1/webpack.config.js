@@ -16,7 +16,9 @@ module.exports = {
     publicPath: "auto"
   },
   optimization: {
-    runtimeChunk: false
+    runtimeChunk: {
+      name: entrypoint => entrypoint.name === "mfe1" ? false : 'runtime'
+    }
   },  
   // resolve: {
   //   alias: {
