@@ -7,7 +7,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-const URL = 'http://localhost:3000/remoteEntry.js';
+const URL = 'http://localhost:4200/remoteEntry.js';
 
 export const APP_ROUTES: Routes = [
   {
